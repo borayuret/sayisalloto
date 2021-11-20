@@ -89,7 +89,11 @@ public class SayisalLoto_array {
 
         // array yazdır
         for (int i = 0; i < sayilar.length; i++) {
-            System.out.print(sayilar[i]+"-");
+
+            if(i == sayilar.length-1)
+                System.out.print(sayilar[i]);
+            else
+                System.out.print(sayilar[i]+"-");
         }
 
 
