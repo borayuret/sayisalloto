@@ -31,7 +31,7 @@ public class SayisalLoto_array {
 
         int sonuc = Arrays.binarySearch(sayilar, sayi);
 
-        if(sayi>=0)
+        if(sonuc>=0)
             return true;
         else
             return false;
