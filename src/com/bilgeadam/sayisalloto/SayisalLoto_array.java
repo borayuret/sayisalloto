@@ -60,19 +60,41 @@ public class SayisalLoto_array {
         //
         // https://www.millipiyangoonline.com/sayisal-loto/sonuclar
 
-        // Sayıları tutacağımız bir array tanımlıyoruz.
-        //int sayilar[] = new int[KAC_SAYI];
-
-        // Döngüyle array'a rastgele sayıları atalım.
-//        for (int i = 0; i < sayilar.length; i++) {
-//
-//
-//
-//        }
-
         SayisalLoto_array loto = new SayisalLoto_array();
 
-        loto.testArraydeVarmı();
+        // Sayıları tutacağımız bir array tanımlıyoruz.
+        int sayilar[] = new int[KAC_SAYI];
+
+        // Döngüyle array'a rastgele sayıları atalım.
+        for (int i = 0; i < sayilar.length; i++) {
+
+            int rastgeleSayi = loto.sayiGetir();
+
+            // rastgele sayı arrayde varsa döngüyle tekrar sayı alınacak.
+            // arrayde olmayan sayı bulana kadar döngüden çıkamaz.
+            boolean sonuc = loto.arraydeVarmi(sayilar, rastgeleSayi);
+            while(sonuc == true)
+            {
+                rastgeleSayi = loto.sayiGetir();
+                sonuc = loto.arraydeVarmi(sayilar, rastgeleSayi);
+            }
+
+            // Hep arrayin ilk elemanına yazalım rastgele sayıyı
+            // Çünkü sıralanınca sayı sonlara gidiyor.
+            sayilar[0] = rastgeleSayi;
+
+            // 6. sayıyı sıfır indekse yazınca, tekrar sıralanması için bunu ekledik.
+            Arrays.sort(sayilar);
+        }
+
+        // array yazdır
+        for (int i = 0; i < sayilar.length; i++) {
+            System.out.print(sayilar[i]+"-");
+        }
+
+
+
+        //loto.testArraydeVarmı();
 
 
 
